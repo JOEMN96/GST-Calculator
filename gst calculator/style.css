@@ -1,0 +1,78 @@
+* {
+    padding: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cal { 
+
+    flex:0 0 95%;
+
+}
+
+.screen {
+    width: 100%;
+    background-color: rgb(41, 41, 56);
+    font-size: 7rem;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    transition: all 0.5s ease;
+}
+
+button {
+    flex: 1 0 25%;
+    border: solid 1px black;
+    padding: 15px ;
+    transition:all  ease 1s; 
+}
+
+button:hover {
+    background-color: red;
+}
+
+.multiplicants {
+
+    background-color:white ;
+    color:  black;
+    font-size: 2rem;
+}
+
+.num-btns {
+
+    background-color:black;
+    color:  white;
+    font-size: 3rem;
+
+}
+
+.gst {
+    background-color: rgb(242, 148, 68);
+    color:  white;
+    font-size: 3rem;
+}
+
+.btn-clear {
+    background-color: red;
+    font-size: 2rem;
+
+}
+.btn-equal {
+    background-color: cyan;
+    font-size: 2rem;
+}
+.btn {
+    font-size: 3rem;
+}

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+* {
+    padding: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cal { 
+
+    flex:0 0 95%;
+
+}
+
+.screen {
+    width: 100%;
+    background-color: rgb(41, 41, 56);
+    font-size: 7rem;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    transition: all 0.5s ease;
+}
+
+button {
+    flex: 1 0 25%;
+    border: solid 1px black;
+    padding: 15px ;
+    transition:all  ease 1s; 
+}
+
+button:hover {
+    background-color: red;
+}
+
+.multiplicants {
+
+    background-color:white ;
+    color:  black;
+    font-size: 2rem;
+}
+
+.num-btns {
+
+    background-color:black;
+    color:  white;
+    font-size: 3rem;
+
+}
+
+.gst {
+    background-color: rgb(242, 148, 68);
+    color:  white;
+    font-size: 3rem;
+}
+
+.btn-clear {
+    background-color: red;
+    font-size: 2rem;
+
+}
+.btn-equal {
+    background-color: cyan;
+    font-size: 2rem;
+}
+.btn {
+    font-size: 3rem;
+}
+
+    </style>
+</head>
+
+<body>
+    
+    
+    <section class="cal">
+        <form >
+                <!-- Screen-->
+
+            <input type="text" id="" class="screen">
+
+        </form>
+
+        <div class="buttons">
+
+            <!-- multiplicants-->
+
+            <button type="button" class="btn "  data-num="*">*</button>
+            <button type="button" class="btn "  data-num="/">/</button>
+            <button type="button" class="btn "  data-num="+">+</button>
+            <button type="button" class="btn "  data-num="-">-</button>
+
+            <!-- GST percentage-->
+               
+
+            <button type="button" class="btn gst5"  data-num="">5%</button>
+            <button type="button" class="btn gst12"  data-num="">12%</button>
+            <button type="button" class="btn gst18"  data-num="">18%</button>
+            <button type="button" class="btn gst28"  data-num="">28%</button>
+           
+            
+
+            <!-- numbers-->
+
+            <button type="button" class="btn num-btns"  data-num=".">.</button>
+            <button type="button" class="btn num-btns"  data-num="9">9</button>
+            <button type="button" class="btn num-btns"  data-num="8">8</button>
+            <button type="button" class="btn num-btns"  data-num="7">7</button>
+            <button type="button" class="btn num-btns"  data-num="6">6</button>
+            <button type="button" class="btn num-btns"  data-num="5">5</button>
+            <button type="button" class="btn num-btns"  data-num="4">4</button>
+            <button type="button" class="btn num-btns"  data-num="3">3</button>
+            <button type="button" class="btn num-btns"  data-num="2">2</button>
+            <button type="button" class="btn num-btns"  data-num="1">1</button>
+            <button type="button" class="btn num-btns"  data-num="0">0</button>
+
+            <button type="button" class="btn-clear">C</button>
+            <button type="button" class="btn-equal">=</button>
+
+
+        </div>
+
+    </section>
+
+    <script>
+
+const btns = document.querySelectorAll('.btn');
+const screen = document.querySelector('.screen');
+const clearbtn = document.querySelector('.btn-clear');
+const equalbtn = document.querySelector('.btn-equal');
+
+const gst5 = document.querySelector('.gst5')       // Selecting GST buttons From DOM
+const gst12 = document.querySelector('.gst12')
+const gst18 = document.querySelector('.gst18')
+const gst28 = document.querySelector('.gst28')
+
+console.log(btns);
+
+for (let i=0; i<btns.length; i++) {
+     btns[i].addEventListener('click',function () {
+         let number = btns[i].getAttribute ('data-num');
+         screen.value += number;
+         
+     })
+
+     screen.animate([{opacity:'0.1'},{opacity:'1.0'}],{duration:500},{fill:'forewards'});   // Animate 
+}
+
+equalbtn.addEventListener('click',function ()  {
+    if(screen.value === '') {
+
+        alert('Enter value');
+
+    } else {
+    let val = eval(screen.value);
+    screen.value=val;
+    }
+
+    screen.animate([{opacity:'0.1'},{opacity:'1.0'}],{duration:500},{fill:'forewards'});   // Animate 
+
+} )
+
+// clear btn
+
+clearbtn.addEventListener('click',function () {
+
+    screen.value = "";
+
+    screen.animate([{opacity:'0.1'},{opacity:'1.0'}],{duration:500},{fill:'forewards'});  // Animate 
+
+} )
+
+// calculation for different GST percentages
+
+
+gst5.addEventListener('click',function () {
+
+    let value = screen.value;
+    
+    let finalval = screen.value * 5 / 100 ;
+
+    screen.value = finalval;
+
+    screen.animate([{opacity:'0.1'},{opacity:'1.0'}],{duration:500},{fill:'forewards'});   // Animate 
+
+} )
+
+
+gst12.addEventListener('click',function () {
+
+    let value = screen.value;
+    
+    let finalval = screen.value * 12 / 100 ;
+
+    screen.value = finalval;
+
+    screen.animate([{opacity:'0.1'},{opacity:'1.0'}],{duration:500},{fill:'forewards'});   // Animate 
+
+} )
+
+gst18.addEventListener('click',function () {
+
+    let value = screen.value;
+    
+    let finalval = screen.value * 18 / 100 ;
+
+    screen.value = finalval;
+
+    screen.animate([{opacity:'0.1'},{opacity:'1.0'}],{duration:500},{fill:'forewards'});   // Animate 
+
+} )
+
+gst28.addEventListener('click',function () {
+
+    let value = screen.value;
+    
+    let finalval = screen.value * 28 / 100 ;
+
+    screen.value = finalval;
+
+    screen.animate([{opacity:'0.1'},{opacity:'1.0'}],{duration:500},{fill:'forewards'});   // Animate 
+
+} )
+
+
+
+    </script>
+</body>
+</html>
